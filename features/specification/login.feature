@@ -23,7 +23,7 @@ Esquema do Cenario: Login ou senha incorretos
         | "mizuharamaico@gmail.com" | "errada"     |
         | "gomugomuno@onepiece.com" | "Mizuhara07" |
 
-@login_Free
+@Create_User
 Cenario: Criar usuario novo
 
 Dado que eu acesse o botão de criar conta

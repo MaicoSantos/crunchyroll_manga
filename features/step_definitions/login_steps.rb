@@ -18,5 +18,19 @@ Dado("que eu preencho o login com {string} e {string} incorretos") do |email, se
 end
 
 Então("devo ver a mensagem de {string} na tela") do |mensagem|
- msg_erro = @screen.login.menssagem_erro(mensagem)
+  @screen.login.menssagem_erro(mensagem)
+end
+
+Dado("que eu acesse o botão de criar conta") do
+  @screen.login.create_account
+end
+
+Quando("eu preencher o e-mail e a senha") do
+  email = Faker::Name.first_name + Faker::Internet.free_email
+  senha = Faker::Internet.password
+  @screen.login.fill_account(email, senha)
+end
+
+Quando("Confirmar") do
+  @screen.login.sign_up
 end

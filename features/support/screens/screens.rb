@@ -4,7 +4,11 @@ class Login
     @usuario = "com.crunchyroll.crmanga:id/email_name"
     @senha = "com.crunchyroll.crmanga:id/password"
     @button_login = "com.crunchyroll.crmanga:id/login_signup_text"
-    @titulo_tela = "com.crunchyroll.crmanga:id/titleText"
+    @button_manga = "com.crunchyroll.crmanga:id/main_button_manga"
+    @button_create_account = "com.crunchyroll.crmanga:id/create_account"
+    @campo_email = "com.crunchyroll.crmanga:id/email"
+    @confirmar_senha = "com.crunchyroll.crmanga:id/password2"
+    @button_signup = "com.crunchyroll.crmanga:id/login_signup_text"
   end
 
   def button_initial_login
@@ -21,11 +25,25 @@ class Login
   end
 
   def tela_inicial
-    find_element(id: @titulo_tela).displayed?
+    find_element(id: @button_manga).displayed?
   end
 
   def menssagem_erro(mensagem)
     find_element(xpath: "//*[@text='#{mensagem}']").display
+  end
+
+  def create_account
+    find_element(id: @button_create_account).click
+  end
+
+  def fill_account(user, senha)
+    find_element(id: @campo_email).send_keys(user)
+    find_element(id: @senha).send_keys(senha)
+    find_element(id: @confirmar_senha).send_keys(senha)
+  end
+
+  def sign_up
+    find_element(id: @button_signup).click
   end
 end
 
