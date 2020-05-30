@@ -6,7 +6,7 @@ Para que eu possa logar no app e visualizar a lista de mangás para ler
 @Login_Premium
 Cenario: Usuário logado
 
-Dado que eu faço login com "maico_nickel28@hotmail.com" e "MIZ2070170"
+Dado que eu faço login com "mizuharamaico@gmail.com" e "Mizuhara07"
 Quando selecionar o botão de Login
 Então posso acessar a tela inicial do app
 

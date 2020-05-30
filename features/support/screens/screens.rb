@@ -29,7 +29,7 @@ class Login
   end
 
   def menssagem_erro(mensagem)
-    find_element(xpath: "//*[@text='#{mensagem}']").display
+    find_elements(xpath: "//*[@text='#{mensagem}']").size() > 0 == true
   end
 
   def create_account
@@ -47,95 +47,43 @@ class Login
   end
 end
 
-class Home
-  def logado
-    @sair.display
-    find_element(xpath: "//*[contains(@text, 'Walter')]").display
+class Manga
+  def initialize
+    @icone_pesquisa = "com.crunchyroll.crmanga:id/manga_search_toggle"
+    @Pesquisa_manga = "com.crunchyroll.crmanga:id/search_edittext"
+    @nome_manga_lista = "com.crunchyroll.crmanga:id/tvcaption_L"
+    @titulo = "com.crunchyroll.crmanga:id/titleText"
+    @button_list = "com.crunchyroll.crmanga:id/button_list"
+    @button_grid = "com.crunchyroll.crmanga:id/button_grid"
   end
 
-  def iniciar_visita
-    sleep 10
-    # find_elements(class: "android.widget.TextView", with: "INICIAR VISITA")[3].click
-    find_element(xpath: "//*[contains(@text, 'INICIAR VISITA')]").click
-  end
-end
-
-class Visit
-  def busca_shopping(shopping)
-    find_element(xpath: "//*[contains(@text, '#{shopping}')]").click
+  def search_icon
+    find_element(id: @icone_pesquisa).click
   end
 
-  def comercializado
-    find_element(xpath: "//*[@text='']").click
-    # @comercializado.click
-    find_element(xpath: "//*[@text='COMERCIALIZADO']").click
+  def search_manga(name)
+    find_element(id: @Pesquisa_manga).send_keys(name)
   end
 
-  def busca_loja(loja)
-    find_element(class: "android.widget.EditText").send_keys(loja)
-    find_element(xpath: "//*[contains(@text, '#{loja.upcase}')]").click
+  def access_manga(name)
+    if find_elements(id: @nome_manga_lista, text: "#{name}").size() > 0 == true
+      @nome = find_element(id: @nome_manga_lista).text
+      find_element(id: @nome_manga_lista, text: "#{@nome}").click
+      find_element(id: @titulo, text: @nome).displayed?
+    else
+      return false
+    end
   end
 
-  def status_loja(status)
-    find_element(xpath: "//*[@text='#{status}']").click
+  def select_icon_view(tipe)
+    if tipe == "lista"
+      find_element(id: @button_list).click
+    elsif tipe == "grade"
+      find_element(id: @button_grid).click
+    end
   end
 
-  def localizacao(piso)
-    find_element(xpath: "//*[@text='#{piso}']").click
-  end
-
-  def adicionar_foto(legenda)
-    # @adicionar_foto.click
-    # @icone_foto.click
-    # @btn_ficou_boa.click
-    # @campo_texto.send_keys(legenda)
-    # @btn_continuar.click
-    find_element(xpath: "//*[@text='Adicionar foto']").click
-    sleep 1
-    # find_element(xpath: "//*[@text='']").click
-    find_element(:xpath, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup").click
-
-    find_element(xpath: "//*[@text='FICOU BOA']").click
-    find_element(class: "android.widget.EditText").send_keys(legenda)
-    find_element(xpath: "//*[@text='CONTINUAR']").click
-
-    # @adicionar_observacao = find_element(xpath: "//*[@text='Adicionar observação']")
-    # @btn_adicionar = find_element(xpath: "//*[@text='ADICIONAR']")
-    # @btn_finalizar = find_element(xpath: "//*[@text='FINALIZAR']")
-
-  end
-
-  def adicionar_observacao(observacao)
-    # @adicionar_observacao.click
-    # @observacoes.send_keys(observacao)
-    # @btn_adicionar.click
-    find_element(xpath: "//*[@text='Adicionar observação']").click
-    find_element(class: "android.widget.EditText", with: "Observações").send_keys(observacao)
-    find_element(xpath: "//*[@text='ADICIONAR']").click
-  end
-
-  def finalizar
-    # @btn_finalizar.click
-    find_element(xpath: "//*[@text='FINALIZAR']").click
-  end
-
-  def evento_adicionado_sucesso
-    # @opções = find_element(:xpath, "//android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView")
-
-    # el1 = driver.find_elements(:xpath, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.widget.TextView")
-    # el2 = driver.find_elements(:xpath, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]")
-
-    # @iniciarVisita = find_element(xpath: "//android.widget.TextView*[@text='INICIAR VISITA']")
-    # @iniciarVisita = find_element(class: "android.widget.TextView", with: "INICIAR VISITA")
-    # find_elements(class: "android.widget.TextView", with: "INICIAR VISITA")[3].click
-
-    # @evento_com_sucesso.display
-    # @adicionado_relatorio.display
-    # @btn_continuar.click
-    # @evento_com_sucesso = find_element(xpath: "//*[@text='Evento registrado com sucesso!']").display
-    sleep 10
-    # @adicionado_relatorio = find_element(xpath: "//*[@text='ADICIONADO AO RELATÓRIO']").display
-    find_element(xpath: "//*[@text='ADICIONADO AO RELATÓRIO']").display
-    find_element(xpath: "//*[@text='CONTINUAR']").click
+  def manga_view(view)
+    find_element(id: "com.crunchyroll.crmanga:id/#{view}_view").displayed?
   end
 end

@@ -8,10 +8,12 @@ Before do
   @screen = DroidScreens.new
 end
 
-Before ("@logado") do
-  user = "ext.wsouza"
-  senha = "Iguatemi@2021"
-  @screen.login.logon(user, senha)
+Before ("@Free") do
+  user = "mizuharamaico@gmail.com"
+  senha = "Mizuhara07"
+  @screen.login.button_initial_login
+  @screen.login.login(user, senha)
+  @screen.login.button_login
 end
 
 After do
@@ -34,7 +36,7 @@ at_exit do
     config.report_types = [:html]
     config.report_title = "Crunchyroll Mangá"
     config.additional_info = @infos
-    config.color = "Orange"
+    config.color = "orange / black"
   end
   ReportBuilder.build_report
 end
