@@ -84,6 +84,6 @@ class Manga
   end
 
   def manga_view(view)
-    find_element(id: "com.crunchyroll.crmanga:id/#{view}_view").displayed?
+    find_element(id: 'com.crunchyroll.crmanga:id/#{view}_view').displayed?
   end
 end

@@ -13,15 +13,15 @@ Então posso acessar a tela inicial do app
 @Login_Incorreto
 Esquema do Cenario: Login ou senha incorretos
 
-        Dado que eu preencho o login com <email> e <senha> incorretos
-        Quando selecionar o botão de Login
-        Então devo ver a mensagem de "Dados de login incorretos." na tela
+Dado que eu preencho o login com <email> e <senha> incorretos
+Quando selecionar o botão de Login
+Então devo ver a mensagem de "Dados de login incorretos." na tela
 
-    Exemplos: 
-        | email                     | senha        |
-        | "gomugomuno@onepiece.com" | "errada"     |
-        | "mizuharamaico@gmail.com" | "errada"     |
-        | "gomugomuno@onepiece.com" | "Mizuhara07" |
+Exemplos:
+| email                     | senha        |
+| "gomugomuno@onepiece.com" | "errada"     |
+| "mizuharamaico@gmail.com" | "errada"     |
+| "gomugomuno@onepiece.com" | "Mizuhara07" |
 
 @Create_User
 Cenario: Criar usuario novo

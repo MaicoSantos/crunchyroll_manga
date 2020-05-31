@@ -27,6 +27,6 @@ Quando selecionar o icone de vizualizacao por <tipo>
 Então o app deve alterar a visualizacao para <visualizacao>
 
 Exemplos: 
-    | tipo     | visualizacao |
-    | "lista"  | "list"       |
-    | "grade"  | "grid"       |
+| tipo     | visualizacao |
+| "lista"  | "list"       |
+| "grade"  | "grid"       |
