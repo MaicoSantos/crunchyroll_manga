@@ -2,7 +2,7 @@
 platformName = "Android"
 deviceName = "VirtualDevice"
 udid = "192.168.63.101:5555"
-app = "/home/maico/Documentos/crunchyroll_manga/com.crunchyroll.crmanga.apk"
+app = "https://docs.google.com/uc?export=download&id=1SMkv7hfHys0i3MncANJ_zkCg50VTTscm"
 appPackage = "com.crunchyroll.crmanga"
 autoGrantPermissions = true
 locationServicesAuthorized = true
