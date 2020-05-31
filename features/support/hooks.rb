@@ -8,11 +8,11 @@ Before do
   @screen = DroidScreens.new
 end
 
-Before ("@Free") do
+Before ("@Logado") do
   user = "mizuharamaico@gmail.com"
-  senha = "Mizuhara07"
+  password = "Mizuhara07"
   @screen.login.button_initial_login
-  @screen.login.login(user, senha)
+  @screen.login.login(user, password)
   @screen.login.button_login
 end
 

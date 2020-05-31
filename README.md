@@ -83,13 +83,21 @@ Na pasta do seu projeto executar:
 - `cucumber`
 - `cucumber -t @tag` (para executar apenas uma feature com a tag específica)
 
-### Explicação dos testes
+### TESTES
 
-Adicionar alterações:
-1. `git status` (verificar o status das alterações)
-2. `git add .` (adicionar todos os arquivos)
-2. `git add nomedoarquivo` (adicionar arquivo)
-3. `git commit -m"Adicionar o comentario aqui sobre o que realmente foi alterado"`
-4. `git push origin nomedabranch`
+`cucumber -t @Login` = executa todos os testes da feature de Login
+
+`cucumber -t @@Login_Correto` = Valida o Login com sucesso no app utilizando um usuario e senha corretos
+
+`cucumber -t @Login_Incorreto` = Valida uma tentativa de Login incorreta utilizando um usuario e senha errados
+
+`cucumber -t @Criar_Usuario` = Valida a criação de uma conta nova para acessar o app
 
 
+`cucumber -t @PesquisaManga` = executa todos os testes da feature de Pesquisa de Mangás
+
+`cucumber -t @Pesquisa_Manga_existente` = Pesquisa uma mangá existente no catálogo pelo nome e acessa a tela principal do mesmo
+
+`cucumber -t @Pesquisa_Manga_inexistente` = Pesquisa um mangá inexistente no catálogo pelo nome e valida que a listagem do mesmo não existe
+
+`cucumber -t @Visualizacao` = Seleciona os botões de vizualição da lista de mangás por 2 tipos, Lista e Grade e valida que o layout alterou os mesmos de forma correta.

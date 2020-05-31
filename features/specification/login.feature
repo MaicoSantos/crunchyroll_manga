@@ -1,9 +1,10 @@
 #language: pt
 
+@Login
 Funcionalidade: Login
 Para que eu possa logar no app e visualizar a lista de mangás para ler
 
-@Login_Premium
+@Login_Correto
 Cenario: Usuário logado
 
 Dado que eu faço login com "mizuharamaico@gmail.com" e "Mizuhara07"
@@ -23,7 +24,7 @@ Exemplos:
 | "mizuharamaico@gmail.com" | "errada"     |
 | "gomugomuno@onepiece.com" | "Mizuhara07" |
 
-@Create_User
+@Criar_Usuario
 Cenario: Criar usuario novo
 
 Dado que eu acesse o botão de criar conta
